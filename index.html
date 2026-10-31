@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Even Bergli | Support Consultant</title>
+  <meta name="description" content="Even Bergli, Support Consultant i Retail &amp; Wholesale hos EG. Erfaring, utdanning og ferdigheter.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" type="image/jpeg" href="bilde.jpg">
+  <script>try{var t=localStorage.getItem('tema');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t}catch(e){}</script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #F6F6F7;
+      --surface: #FFFFFF;
+      --ink: #17181A;
+      --muted: #5C6066;
+      --line: #E1E2E5;
+      --accent: #17181A;
+      --accent-ink: #FFFFFF;
+      --signal: #5B7C99;
+      --code-key: #3F6285;
+
+      --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+      --body: "Instrument Sans", "Segoe UI", system-ui, sans-serif;
+      --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    }
+
+    :root[data-theme="light"] { color-scheme: light; }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #121315;
+        --surface: #1A1B1E;
+        --ink: #ECECED;
+        --muted: #9A9DA3;
+        --line: #2A2C30;
+        --accent: #ECECED;
+        --accent-ink: #121315;
+        --signal: #8FA7BF;
+        --code-key: #9DB6CE;
+
+      }
+    }
+
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --bg: #121315;
+      --surface: #1A1B1E;
+      --ink: #ECECED;
+      --muted: #9A9DA3;
+      --line: #2A2C30;
+      --accent: #ECECED;
+      --accent-ink: #121315;
+      --signal: #8FA7BF;
+      --code-key: #9DB6CE;
+
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--body);
+      font-size: 1.0625rem;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; }
+
+    :focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    .wrap {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    .skip {
+      position: absolute;
+      left: 16px;
+      top: -60px;
+      background: var(--accent);
+      color: var(--accent-ink);
+      padding: 8px 14px;
+      border-radius: 8px;
+      z-index: 10;
+    }
+    .skip:focus { top: 16px; }
+
+    /* Top bar */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      background: color-mix(in srgb, var(--bg) 88%, transparent);
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+    .topbar.scrolled { border-bottom-color: var(--line); }
+
+    .top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding-top: 14px;
+      padding-bottom: 14px;
+    }
+    .top-name {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 1.125rem;
+      text-decoration: none;
+    }
+    .top-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 24px;
+      font-size: 0.9375rem;
+    }
+    .top-nav a {
+      text-decoration: none;
+      color: var(--muted);
+      padding: 4px 0;
+      border-bottom: 2px solid transparent;
+    }
+    .top-nav a:hover { color: var(--ink); border-bottom-color: var(--signal); }
+
+    .top-nav { align-items: center; }
+    .top-nav a[aria-current="true"] { color: var(--ink); border-bottom-color: var(--signal); }
+
+    .theme-toggle {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      padding: 0;
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .theme-toggle:hover { border-color: var(--ink); }
+    .theme-toggle svg { width: 18px; height: 18px; }
+
+    .section { scroll-margin-top: 64px; }
+
+    /* Hero */
+    .hero {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 48px;
+      align-items: end;
+      padding-top: 56px;
+      padding-bottom: 96px;
+    }
+    .hero-name {
+      margin: 0;
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: clamp(3.75rem, 12vw, 8.5rem);
+      line-height: 0.92;
+      letter-spacing: -0.035em;
+    }
+    .hero-name span { display: block; }
+    .hero-name span + span {
+      margin-left: 0.18em;
+      text-decoration: underline;
+      text-decoration-color: var(--signal);
+      text-decoration-thickness: 0.06em;
+      text-underline-offset: 0.1em;
+    }
+    .hero-name span { animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+    .hero-name span + span { animation-delay: 0.12s; }
+    .portrait {
+      display: inline-block;
+      width: 0.74em;
+      height: 0.74em;
+      margin-left: 0.16em;
+      vertical-align: -0.02em;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: 50% 25%;
+      background: var(--line);
+      box-shadow: 0 0 0 0.045em var(--signal);
+    }
+    @keyframes rise { from { opacity: 0; transform: translateY(0.18em); } }
+    .hero-role {
+      margin: 0 0 12px;
+      font-family: var(--display);
+      font-weight: 500;
+      font-size: 1.375rem;
+      line-height: 1.3;
+    }
+    .hero-text {
+      margin: 0 0 28px;
+      color: var(--muted);
+      max-width: 46ch;
+    }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+    .btn {
+      display: inline-block;
+      font: inherit;
+      font-weight: 600;
+      font-size: 0.9375rem;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      border: 2px solid var(--accent);
+      cursor: pointer;
+    }
+    .btn-primary { background: var(--accent); color: var(--accent-ink); }
+    .btn-primary:hover { opacity: 0.88; }
+    .btn-ghost { background: transparent; color: var(--ink); border-color: var(--line); }
+    .btn-ghost:hover { border-color: var(--ink); }
+
+    /* Sections */
+    .section {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 24px 48px;
+      padding-top: 72px;
+      padding-bottom: 72px;
+      border-top: 1px solid var(--line);
+    }
+    .section-title {
+      margin: 0;
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 1.75rem;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      position: sticky;
+      top: 24px;
+      align-self: start;
+    }
+
+    /* Experience */
+    .job-meta {
+      color: var(--muted);
+      font-size: 0.9375rem;
+      margin: 0 0 4px;
+    }
+    .job-title {
+      margin: 0 0 4px;
+      font-family: var(--display);
+      font-weight: 500;
+      font-size: 1.5rem;
+      line-height: 1.25;
+    }
+    .job-company { margin: 0 0 20px; color: var(--muted); }
+    .job-lead { max-width: 62ch; margin: 0 0 20px; }
+    .bullets {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      max-width: 62ch;
+    }
+    .bullets li {
+      position: relative;
+      padding: 6px 0 6px 22px;
+    }
+    .bullets li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.92em;
+      width: 8px;
+      height: 8px;
+      background: var(--signal);
+    }
+
+    .job + .job { margin-top: 56px; }
+    .other { margin-top: 56px; }
+    .other-list { margin: 0; max-width: 62ch; }
+    .other-list div { padding: 8px 0; }
+    .other-list dt { font-weight: 600; }
+    .other-list dd { margin: 2px 0 0; color: var(--muted); font-size: 0.9375rem; }
+
+    /* Education + activities */
+    .pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+    .entry h3 {
+      margin: 0 0 4px;
+      font-family: var(--display);
+      font-weight: 500;
+      font-size: 1.25rem;
+      line-height: 1.3;
+    }
+    .entry p { margin: 0 0 6px; max-width: 46ch; }
+    .entry .muted { color: var(--muted); font-size: 0.9375rem; }
+    .entry + .entry { margin-top: 28px; }
+    .pair-head {
+      margin: 0 0 16px;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    /* Skills */
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px 32px;
+    }
+    .skills h3 {
+      margin: 0 0 16px;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--muted);
+    }
+    .skills ul { margin: 0; padding: 0; list-style: none; }
+    .skills li { padding: 4px 0; }
+
+    /* CV i SQL */
+    .db-lead { margin: 0 0 20px; color: var(--muted); max-width: 52ch; }
+    .console {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+      font-family: var(--mono);
+      font-size: 0.875rem;
+    }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; padding: 16px 18px 0; }
+    .chip {
+      font: inherit;
+      color: var(--muted);
+      background: transparent;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 6px 12px;
+      cursor: pointer;
+    }
+    .chip:hover { color: var(--ink); border-color: var(--ink); }
+    .chip[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+    .query {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin: 16px 18px 0;
+      padding: 12px 14px;
+      background: var(--bg);
+      border-radius: 8px;
+      min-height: 3em;
+    }
+    .prompt { color: var(--code-key); }
+    .query-text { font: inherit; color: var(--ink); overflow-wrap: anywhere; }
+    .kw { color: var(--code-key); font-weight: 500; }
+    .str { color: var(--muted); }
+    .output { padding: 12px 18px 18px; overflow-x: auto; min-height: 270px; }
+    .output table { border-collapse: collapse; min-width: 100%; }
+    .output th {
+      text-align: left;
+      font-weight: 500;
+      color: var(--muted);
+      padding: 8px 24px 8px 0;
+      border-bottom: 1px solid var(--line);
+      white-space: nowrap;
+    }
+    .output td { padding: 8px 24px 8px 0; vertical-align: top; }
+    .output td.nowrap { white-space: nowrap; }
+    .row { animation: rowin 0.25s ease both; animation-delay: calc(var(--i) * 40ms); }
+    @keyframes rowin { from { opacity: 0; transform: translateY(4px); } }
+    .count { margin: 12px 0 0; color: var(--muted); }
+
+    /* Footer */
+    .foot {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+      padding-top: 32px;
+      padding-bottom: 48px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.9375rem;
+    }
+
+    .contact-lead { margin: 0 0 16px; color: var(--muted); max-width: 46ch; }
+    .contact-list { margin: 0 0 32px; max-width: 520px; }
+    .contact-list div {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 16px;
+      padding: 8px 0;
+    }
+    .contact-list dt { color: var(--muted); font-size: 0.9375rem; }
+    .contact-list dd { margin: 0; font-weight: 500; }
+    .contact-list a { text-underline-offset: 0.2em; }
+
+    .mail {
+      display: inline-block;
+      margin: 0 0 32px;
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: clamp(1.5rem, 5vw, 2.75rem);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      overflow-wrap: anywhere;
+      text-decoration: underline;
+      text-decoration-color: var(--signal);
+      text-decoration-thickness: 0.1em;
+      text-underline-offset: 0.15em;
+    }
+    .mail:hover { text-decoration-color: var(--ink); }
+    .copy-status { min-height: 1.6em; margin: 12px 0 0; color: var(--muted); font-size: 0.9375rem; }
+
+    .quote { font-style: italic; }
+
+    .foot-links { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+
+    /* Responsive */
+    @media (max-width: 860px) {
+      .hero { grid-template-columns: 1fr; gap: 32px; padding-bottom: 64px; }
+      .section { grid-template-columns: 1fr; padding-top: 56px; padding-bottom: 56px; }
+      .section-title { position: static; }
+      .pair, .skills { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .topbar { position: static; }
+      .top { flex-wrap: wrap; gap: 8px 24px; }
+      .top-nav { gap: 4px 18px; font-size: 0.875rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .hero-name span, .row { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#innhold">Hopp til innhold</a>
+
+  <header class="topbar" id="topbar">
+    <div class="top wrap">
+      <a class="top-name" href="#">Even Bergli</a>
+      <nav class="top-nav" aria-label="Hovedmeny">
+        <a href="#erfaring">Erfaring</a>
+        <a href="#utdanning">Utdanning</a>
+        <a href="#ferdigheter">Ferdigheter</a>
+        <a href="#cv-db">CV i SQL</a>
+        <a href="#kontakt">Kontakt</a>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Bytt mellom lys og mørk modus">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="innhold">
+
+    <section class="hero wrap" aria-labelledby="navn">
+      <h1 class="hero-name" id="navn"><span>Even<img class="portrait" src="bilde.jpg" alt="" width="400" height="400"></span><span>Bergli</span></h1>
+      <div>
+        <p class="hero-role">Support Consultant i Retail &amp; Wholesale hos EG</p>
+        <p class="hero-text">Jeg feilsøker og løser saker for kunder innen handel, og har ansvaret som Incident Manager for flere store kunder. Jeg finner ut hvorfor ting ikke fungerer, og fikser det før noen rekker å spørre.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="https://www.linkedin.com/in/even-bergli-2405ab250/" target="_blank" rel="noopener">Se LinkedIn</a>
+          <a class="btn btn-ghost" href="#kontakt">Ta kontakt</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section wrap" id="erfaring" aria-labelledby="erfaring-tittel">
+      <h2 class="section-title" id="erfaring-tittel">Erfaring</h2>
+      <div>
+        <article class="job">
+          <p class="job-meta">April 2025 til nå, Oslo, hybrid</p>
+          <h3 class="job-title">Support Consultant, Retail &amp; Wholesale</h3>
+          <p class="job-company">EG A/S</p>
+          <p class="job-lead">Brukerstøtte og feilsøking for kunder innen handel. I tillegg har jeg ansvaret som Incident Manager for flere store kunder, der jeg holder oversikt over status og sørger for tydelig kommunikasjon mellom kunde og interne team til hendelsen er løst.</p>
+          <ul class="bullets">
+            <li>Mottar, feilsøker og løser saker fra kunder, og eskalerer til utviklingsteam ved behov</li>
+            <li>Dokumenterer saker i saksbehandlingssystem og oppretter feilrapporter til utviklingsteam når feil må rettes i produktet</li>
+            <li>Undersøker data- og rapportavvik med SQL-spørringer og logganalyse</li>
+            <li>Lager og vedlikeholder intern kunnskapsbase for teamet</li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <p class="job-meta">2020 til 2021</p>
+          <h3 class="job-title">SysAdmin og IT Support</h3>
+          <p class="job-company">Malermestrene Indre Østland AS</p>
+          <p class="job-lead">Min første IT-rolle. Jeg hadde ansvar for både support og drift av IT i selskapet.</p>
+          <ul class="bullets">
+            <li>Første- og andrelinje IT-support og opplæring av ansatte</li>
+            <li>Satte opp et nytt IT-system for selskapet</li>
+            <li>Ansvarlig for drift av IT</li>
+          </ul>
+        </article>
+
+        <div class="other">
+          <p class="pair-head">Annen erfaring</p>
+          <dl class="other-list">
+            <div>
+              <dt>Selger, Skeidar Hønefoss AS</dt>
+              <dd>2023 til nå. Salg av møbler og kundeservice, med hjelp til kunder ved kjøp og reklamasjonssaker.</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="section wrap" id="utdanning" aria-labelledby="utdanning-tittel">
+      <h2 class="section-title" id="utdanning-tittel">Utdanning og aktiviteter</h2>
+      <div class="pair">
+        <div>
+          <p class="pair-head">Utdanning</p>
+          <div class="entry">
+            <h3>Bachelor i IT og informasjonssystemer</h3>
+            <p class="muted">Universitetet i Sørøst-Norge, campus Ringerike, august 2021 til juni 2024</p>
+            <p>Programmering, systemutvikling, databaser og informasjonssystemer, med prosjektgjennomføring og prosjektledelse.</p>
+          </div>
+          <div class="entry">
+            <h3>Medier og kommunikasjon</h3>
+            <p class="muted">Gjøvik videregående skole, august 2017 til juni 2020</p>
+          </div>
+        </div>
+        <div>
+          <p class="pair-head">Aktiviteter og foreninger</p>
+          <div class="entry">
+            <h3>Trivselsvert</h3>
+            <p class="muted">Studentsamskipnaden i Sørøst-Norge, 2022 til 2024</p>
+            <p>Skapte et godt miljø i studentboligene, løste konflikter mellom beboere og tok imot nye beboere.</p>
+          </div>
+          <div class="entry">
+            <h3>Jokern Studentkro</h3>
+            <p class="muted">Driftsteam under studietiden</p>
+            <p>Var med på å drive studentkroa og arrangere quiz-kvelder, temafester og andre arrangementer.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section wrap" id="ferdigheter" aria-labelledby="ferdigheter-tittel">
+      <h2 class="section-title" id="ferdigheter-tittel">Ferdigheter</h2>
+      <div class="skills">
+        <div>
+          <h3>Fagfelt</h3>
+          <ul>
+            <li>Hendelseshåndtering</li>
+            <li>Første- og andrelinje support</li>
+            <li>Teknisk feilsøking</li>
+            <li>IT-drift</li>
+            <li>Kundekommunikasjon</li>
+            <li>Prosjektgjennomføring</li>
+            <li>Prosjektledelse</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Programmering</h3>
+          <ul>
+            <li>Python</li>
+            <li>JavaScript</li>
+            <li>React</li>
+            <li>HTML/CSS</li>
+            <li>Android-apputvikling</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Maskinvare og nettverk</h3>
+          <ul>
+            <li>Nettverk</li>
+            <li>Maskinvare og PC-montering</li>
+            <li>Raspberry Pi</li>
+            <li>Bankterminaler</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Verktøy</h3>
+          <ul>
+            <li>ServiceNow</li>
+            <li>Jira</li>
+            <li>Confluence</li>
+            <li>Microsoft SQL Server</li>
+            <li>PowerShell</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Systemer</h3>
+          <ul>
+            <li>Chain Classic</li>
+            <li>EG POS</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section wrap" id="cv-db" aria-labelledby="db-tittel">
+      <h2 class="section-title" id="db-tittel">CV i SQL</h2>
+      <div>
+        <p class="db-lead">Samme CV som over, bare som spørringer mot en liten database. Velg en tabell.</p>
+        <div class="console">
+          <div class="chips" id="chips" role="group" aria-label="Velg tabell"></div>
+          <div class="query">
+            <span class="prompt" aria-hidden="true">SQL&gt;</span>
+            <code class="query-text" id="query-text"></code>
+          </div>
+          <div class="output" id="output" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section wrap" id="kontakt" aria-labelledby="kontakt-tittel">
+      <h2 class="section-title" id="kontakt-tittel">Ta kontakt</h2>
+      <div>
+        <p class="contact-lead">Ta gjerne kontakt om IT-roller, support eller hendelseshåndtering.</p>
+        <a class="mail" id="mail" href="mailto:evenjobb@protonmail.com">evenjobb@protonmail.com</a>
+        <dl class="contact-list">
+          <div>
+            <dt>Telefon</dt>
+            <dd><a href="tel:+4794826331">+47 948 26 331</a></dd>
+          </div>
+          <div>
+            <dt>LinkedIn</dt>
+            <dd><a href="https://www.linkedin.com/in/even-bergli-2405ab250/" target="_blank" rel="noopener">Even Bergli</a></dd>
+          </div>
+          <div>
+            <dt>Sted</dt>
+            <dd>Oslo</dd>
+          </div>
+        </dl>
+        <div class="actions">
+          <button class="btn btn-primary" id="copy-mail" type="button">Kopier e-postadresse</button>
+        </div>
+        <p class="copy-status" id="copy-status" role="status"></p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="foot wrap">
+    <span>Even Bergli, Oslo</span>
+    <span class="quote">«Har du forsøkt å skru den av og på igjen?»</span>
+  </footer>
+
+  <script>
+    // CV i SQL. Ferdigheter hentes fra listene på siden, så de er alltid i takt.
+    const skillRows = [...document.querySelectorAll('.skills > div')].flatMap(div => {
+      const kategori = div.querySelector('h3').textContent.trim();
+      return [...div.querySelectorAll('li')].map(li => ({ navn: li.textContent.trim(), kategori }));
+    });
+
+    const DB = {
+      erfaring: [
+        { rolle: 'Support Consultant', arbeidsgiver: 'EG A/S', fra: '2025-04', til: 'nå' },
+        { rolle: 'SysAdmin og IT Support', arbeidsgiver: 'Malermestrene Indre Østland AS', fra: '2020', til: '2021' }
+      ],
+      utdanning: [
+        { grad: 'Bachelor i IT og informasjonssystemer', skole: 'Universitetet i Sørøst-Norge', fra: 2021, til: 2024 },
+        { grad: 'Medier og kommunikasjon', skole: 'Gjøvik videregående skole', fra: 2017, til: 2020 }
+      ],
+      ferdigheter: skillRows,
+      aktiviteter: [
+        { rolle: 'Trivselsvert', organisasjon: 'Studentsamskipnaden i Sørøst-Norge' },
+        { rolle: 'Driftsteam', organisasjon: 'Jokern Studentkro' }
+      ]
+    };
+
+    const TABLES = [
+      { label: 'Erfaring', sql: 'SELECT rolle, arbeidsgiver, fra, til FROM erfaring;' },
+      { label: 'Utdanning', sql: 'SELECT * FROM utdanning;' },
+      { label: 'Programmering', sql: "SELECT navn FROM ferdigheter WHERE kategori = 'Programmering';" },
+      { label: 'Verktøy', sql: "SELECT navn FROM ferdigheter WHERE kategori = 'Verktøy';" },
+      { label: 'Aktiviteter', sql: 'SELECT rolle, organisasjon FROM aktiviteter;' }
+    ];
+
+    function runQuery(sql) {
+      const m = sql.trim().replace(/;+$/, '').match(/^select\s+(.+?)\s+from\s+(\w+)(?:\s+where\s+(\w+)\s*=\s*'([^']*)')?$/i);
+      if (!m) return { cols: [], rows: [] };
+      const [, select, table, whereCol, whereVal] = m;
+      const data = DB[table.toLowerCase()] || [];
+      let rows = data;
+      if (whereCol) rows = rows.filter(r => String(r[whereCol]).toLowerCase() === whereVal.toLowerCase());
+      const cols = select.trim() === '*' ? Object.keys(data[0] || {}) : select.split(',').map(c => c.trim());
+      return { cols, rows };
+    }
+
+    const out = document.getElementById('output');
+    const queryText = document.getElementById('query-text');
+    const chipsEl = document.getElementById('chips');
+    const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function highlight(sql) {
+      const frag = document.createDocumentFragment();
+      sql.split(/(\bselect\b|\bfrom\b|\bwhere\b|'[^']*'?)/i).forEach(part => {
+        if (!part) return;
+        const span = document.createElement('span');
+        if (/^(select|from|where)$/i.test(part)) span.className = 'kw';
+        else if (part.startsWith("'")) span.className = 'str';
+        span.textContent = part;
+        frag.append(span);
+      });
+      return frag;
+    }
+
+    function render({ cols, rows }) {
+      out.replaceChildren();
+      const table = document.createElement('table');
+      const hr = document.createElement('tr');
+      cols.forEach(c => {
+        const th = document.createElement('th');
+        th.scope = 'col';
+        th.textContent = c;
+        hr.append(th);
+      });
+      const thead = document.createElement('thead');
+      thead.append(hr);
+
+      const tbody = document.createElement('tbody');
+      rows.forEach((r, i) => {
+        const tr = document.createElement('tr');
+        tr.className = 'row';
+        tr.style.setProperty('--i', i);
+        cols.forEach(c => {
+          const td = document.createElement('td');
+          td.textContent = r[c] ?? '';
+          if (String(r[c] ?? '').length <= 12) td.className = 'nowrap';
+          tr.append(td);
+        });
+        tbody.append(tr);
+      });
+      table.append(thead, tbody);
+
+      const count = document.createElement('p');
+      count.className = 'count';
+      count.textContent = rows.length + (rows.length === 1 ? ' rad' : ' rader');
+      out.append(table, count);
+    }
+
+    let runId = 0;
+    async function show(sql, animate) {
+      const id = ++runId;
+      out.replaceChildren();
+      if (animate && !reduceMotion) {
+        for (let i = 1; i <= sql.length; i++) {
+          queryText.replaceChildren(highlight(sql.slice(0, i)));
+          await new Promise(resolve => setTimeout(resolve, 10));
+          if (id !== runId) return;
+        }
+      } else {
+        queryText.replaceChildren(highlight(sql));
+      }
+      render(runQuery(sql));
+    }
+
+    TABLES.forEach((t, i) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'chip';
+      b.textContent = t.label;
+      b.setAttribute('aria-pressed', i === 0 ? 'true' : 'false');
+      b.addEventListener('click', () => {
+        chipsEl.querySelectorAll('.chip').forEach(c => c.setAttribute('aria-pressed', 'false'));
+        b.setAttribute('aria-pressed', 'true');
+        show(t.sql, true);
+      });
+      chipsEl.append(b);
+    });
+    show(TABLES[0].sql, false);
+
+    // Tema: bytt mellom lys og mørk, husk valget
+    const root = document.documentElement;
+    document.getElementById('theme-toggle').addEventListener('click', () => {
+      const current = root.dataset.theme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      const next = current === 'dark' ? 'light' : 'dark';
+      root.dataset.theme = next;
+      try { localStorage.setItem('tema', next); } catch (e) {}
+    });
+
+    // Toppmeny: linje under ved scrolling, og marker aktiv seksjon
+    const bar = document.getElementById('topbar');
+    const onScroll = () => bar.classList.toggle('scrolled', window.scrollY > 8);
+    addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    const navLinks = [...document.querySelectorAll('.top-nav a[href^="#"]')];
+    const navMap = new Map(navLinks.map(a => [a.getAttribute('href').slice(1), a]));
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        navLinks.forEach(l => l.removeAttribute('aria-current'));
+        const link = navMap.get(e.target.id);
+        if (link) link.setAttribute('aria-current', 'true');
+      });
+    }, { rootMargin: '-35% 0px -55% 0px' });
+    navMap.forEach((_, id) => {
+      const el = document.getElementById(id);
+      if (el) io.observe(el);
+    });
+
+    // Kopier e-postadresse
+    const statusEl = document.getElementById('copy-status');
+    let statusTimer;
+    document.getElementById('copy-mail').addEventListener('click', async () => {
+      const addr = document.getElementById('mail').textContent.trim();
+      try {
+        await navigator.clipboard.writeText(addr);
+        statusEl.textContent = 'Kopiert.';
+      } catch (e) {
+        statusEl.textContent = 'Kunne ikke kopiere. Marker adressen over og kopier den manuelt.';
+      }
+      clearTimeout(statusTimer);
+      statusTimer = setTimeout(() => { statusEl.textContent = ''; }, 3000);
+    });
+  </script>
+</body>
+</html>
