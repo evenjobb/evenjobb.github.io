@@ -502,6 +502,13 @@
           </ul>
         </article>
 
+                <article class="job">
+          <p class="job-meta">2025 til nå</p>
+          <h3 class="job-title">Tillitsvalgt, NITO</h3>
+          <p class="job-company">Front Systems AS, datterselskap av EG A/S</p>
+          <p class="job-lead">Tillitsvalgt for NITO-medlemmer i Front Systems AS.</p>
+        </article>
+
         <article class="job">
           <p class="job-meta">2020 til 2021</p>
           <h3 class="job-title">SysAdmin og IT Support</h3>
@@ -611,6 +618,16 @@
             <li>Front Systems</li>
           </ul>
         </div>
+        <div>
+          <h3>AI og automatisering</h3>
+          <ul>
+            <li>Claude og generativ AI</li>
+            <li>Model Context Protocol (MCP)</li>
+            <li>Prompt engineering</li>
+            <li>AI-assistert feilsøking og dokumentasjon</li>
+            <li>Automatisering av arbeidsflyter</li>
+          </ul>
+        </div>
       </div>
     </section>
 
@@ -672,6 +689,7 @@
     const DB = {
       erfaring: [
         { rolle: 'Support Consultant', arbeidsgiver: 'EG A/S', fra: '2025-04', til: 'nå' },
+        { rolle: 'Tillitsvalgt (NITO)', arbeidsgiver: 'Front Systems AS (EG)', fra: '2025', til: 'nå' },
         { rolle: 'SysAdmin og IT Support', arbeidsgiver: 'Malermestrene Indre Østland AS', fra: '2020', til: '2021' }
       ],
       utdanning: [
@@ -690,6 +708,7 @@
       { label: 'Utdanning', sql: 'SELECT * FROM utdanning;' },
       { label: 'Programmering', sql: "SELECT navn FROM ferdigheter WHERE kategori = 'Programmering';" },
       { label: 'Verktøy', sql: "SELECT navn FROM ferdigheter WHERE kategori = 'Verktøy';" },
+      { label: 'AI', sql: "SELECT navn FROM ferdigheter WHERE kategori = 'AI og automatisering';" },
       { label: 'Aktiviteter', sql: 'SELECT rolle, organisasjon FROM aktiviteter;' }
     ];
 
